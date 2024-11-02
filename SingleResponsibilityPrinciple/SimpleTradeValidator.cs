@@ -32,6 +32,12 @@ namespace SingleResponsibilityPrinciple
                 logger.LogWarning("Trade not a valid integer: '{0}'", tradeData[1]);
                 return false;
             }
+            // checking if TradeAmount is between 1000 and 1000000
+            if (tradeAmount < 1000 || tradeAmount > 1000000)
+            {
+                logger.LogWarning("Trade amount is out of bounds '{0}'", tradeAmount);
+                return false;
+            }
 
             decimal tradePrice;
             if (!decimal.TryParse(tradeData[2], out tradePrice))

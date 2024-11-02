@@ -136,5 +136,20 @@ namespace SingleResponsibilityPrinciple.Tests
             //Assert
             Assert.IsFalse(result);
         }
+        // new test
+        [TestMethod()]
+        public void TestValidatorEmptyString()
+        {
+            //Arrange
+            var logger = new ConsoleLogger();
+            var tradeValidator = new SimpleTradeValidator(logger);
+            string[] strData = { "", "4444", "1.00" };
+
+            //Act
+            bool result = tradeValidator.Validate(strData);
+
+            //Assert
+            Assert.IsFalse(result);
+        }
     }
 }
